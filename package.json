@@ -11,6 +11,7 @@
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
     "node-sass": "^4.14.1n",
+    "np": "^7.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -18,10 +19,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"No test specified\""
   },
   "eslintConfig": {
     "extends": [
