@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
 import "./styles.scss";
-import { useInterval } from "./useInterval/useInterval";
+import { useInterval } from "./useInterval";
 
 interface ImageGridProps {
   images: string[];
