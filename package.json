@@ -1,11 +1,11 @@
 {
   "name": "react-image-grid-animator",
   "version": "0.1.5",
-  "private": false,
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
+  "module": "build/index.es.js",
+  "main": "build/index.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "rollup -c"
   },
@@ -16,33 +16,11 @@
     "animator",
     "random"
   ],
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "compilerOptions": {
-    "declaration": true
-  },
-  "types": "src/index.d.ts",
-  "main": "build/index.js",
-  "module": "build/index.es.js",
-  "files": [
-    "build"
-  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
@@ -53,6 +31,8 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "@types/node": "^12.19.12",
     "@types/react": "^16.14.2",
-    "@types/react-dom": "^16.9.10"
+    "@types/react-dom": "^16.9.10",
+    "typescript": "^4.1.3",
+    "postcss": "^8.2.4"
   }
 }
