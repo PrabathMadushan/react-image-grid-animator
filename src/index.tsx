@@ -17,7 +17,7 @@ interface IItem {
   image: string;
 }
 
-const BrandPanel = (props: IProps) => {
+const ImageGrid = (props: IProps) => {
   const [visibles, setVisibles] = useState<IItem[]>([]);
   const [invisibles, setInvisibles] = useState<IItem[]>([]);
 
@@ -104,10 +104,10 @@ const BrandPanel = (props: IProps) => {
   );
 };
 
-BrandPanel.defaultProps = {
+ImageGrid.defaultProps = {
   animationItemcount: -1,
   randomized: true,
   isActive: true,
 };
 
-export default BrandPanel;
+export default ImageGrid;
