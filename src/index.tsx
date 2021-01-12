@@ -3,7 +3,7 @@ import Item from "./Item";
 import "./styles.scss";
 import { useInterval } from "./useInterval/useInterval";
 
-interface IProps {
+interface ImageGridProps {
   images: string[];
   visibleCount: number;
   interval: number;
@@ -17,7 +17,7 @@ interface IItem {
   image: string;
 }
 
-const ImageGrid = (props: IProps) => {
+const ImageGrid = (props: ImageGridProps) => {
   const [visibles, setVisibles] = useState<IItem[]>([]);
   const [invisibles, setInvisibles] = useState<IItem[]>([]);
 
