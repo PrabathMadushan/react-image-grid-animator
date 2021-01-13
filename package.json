@@ -1,6 +1,6 @@
 {
   "name": "react-image-grid-animator",
-  "version": "0.1.5",
+  "version": "0.1.9",
   "module": "build/index.es.js",
   "description": "A animated image grid",
 	"license": "MIT",
@@ -9,6 +9,10 @@
   "files": [
     "build"
   ],
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/PrabathMadushan/react-image-grid-animator"
+	},
   "scripts": {
     "build": "rollup -c"
   },
