@@ -2,6 +2,9 @@
   "name": "react-image-grid-animator",
   "version": "0.1.5",
   "module": "build/index.es.js",
+  "description": "A animated image grid",
+	"license": "MIT",
+	"author": "Prabhath Madhushan <prabathmadushan5@gmail.com>",
   "main": "build/index.js",
   "files": [
     "build"
