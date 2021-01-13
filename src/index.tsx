@@ -47,7 +47,6 @@ const ImageGrid = (props: ImageGridProps) => {
       const vc = props.visibleCount;
       const ic = tc - vc;
       const mxc = vc < ic ? vc : ic;
-
       const oneTimeCount = props.randomized
         ? Math.abs(Math.floor(Math.random() * mxc) + 1)
         : (props.animationItemcount ||
