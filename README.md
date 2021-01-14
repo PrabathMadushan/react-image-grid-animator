@@ -30,8 +30,9 @@ import  ImageGrid  from  "react-image-grid-animator";
 | Property           | Type         | Required | Description                                                                                    |
 |--------------------|--------------|----------|------------------------------------------------------------------------------------------------|
 | images             | string array | yes      | Array of images for the image grid                                                             |
-| visibleCount       | number       | yes      | Visible image count in grid (If animation item count value is "0" then it will be randomized.) |
+| visibleCount       | number       | yes      | Visible image count in grid  |
 | interval           | number       | yes      | Animation interval in milliseconds                                                                       |
+| animationItemcount           | number       | yes      | Animation item count (If animation item count value is "0" then it will be randomized.)                                                                      |
 | transitionDuration | number       | yes      | Animation duration in milliseconds                                                                       |
 | isActive           | boolean      | no       | Animation running or not (default value is true)                                                        |
 
