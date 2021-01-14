@@ -29,7 +29,7 @@ import  ImageGrid  from  "react-image-grid-animator";
 ### API
 | Property           | Type         | Required | Description                                                                                    |
 |--------------------|--------------|----------|------------------------------------------------------------------------------------------------|
-| images             | string array | yes      | Array of images for the image grid                                                             |
+| images             | string array | yes      | Array of image for the image grid                                                             |
 | visibleCount       | number       | yes      | Visible image count in grid  |
 | interval           | number       | yes      | Animation interval in milliseconds                                                                       |
 | animationItemcount           | number       | yes      | Animation item count (If animation item count value is "0" then it will be randomized.)                                                                      |
