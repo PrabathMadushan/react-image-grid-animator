@@ -21,7 +21,14 @@
     "image",
     "grid",
     "animator",
-    "random"
+    "random",
+    "logo",
+    "company logo",
+    "slidshow",
+    "collage",
+    "animation",
+    "photo",
+    "icon"
   ],
 
   "peerDependencies": {

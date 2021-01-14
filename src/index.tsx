@@ -8,7 +8,6 @@ interface ImageGridProps {
   visibleCount: number;
   interval: number;
   animationItemcount?: number;
-  randomized?: boolean;
   isActive?: boolean;
   transitionDuration: number;
 }
@@ -47,12 +46,14 @@ const ImageGrid = (props: ImageGridProps) => {
       const vc = props.visibleCount;
       const ic = tc - vc;
       const mxc = vc < ic ? vc : ic;
-      const oneTimeCount = props.randomized
-        ? Math.abs(Math.floor(Math.random() * mxc) + 1)
-        : (props.animationItemcount ||
-            props.images.length - props.visibleCount) > mxc
-        ? mxc
-        : props.animationItemcount || props.images.length - props.visibleCount;
+      const oneTimeCount =
+        props.animationItemcount === 0
+          ? Math.abs(Math.floor(Math.random() * mxc) + 1)
+          : (props.animationItemcount ||
+              props.images.length - props.visibleCount) > mxc
+          ? mxc
+          : props.animationItemcount ||
+            props.images.length - props.visibleCount;
       let r_array01 = [],
         r_array02 = [];
       for (let i: number = 0; i < visibles.length; i++) r_array01.push(i);
