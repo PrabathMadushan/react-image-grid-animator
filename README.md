@@ -5,13 +5,9 @@
 
 ### How to install
 ##### Install with [npm](https://www.npmjs.com/) (or [yarn](https://yarnpkg.com/)):
-```JSX
-   npm install react-image-grid-animator
-```
 
-```JSX
-   yarn add react-image-grid-animator
-```
+##### `# npm install react-image-grid-animator`
+##### `# yarn add react-image-grid-animator`
 
 ### Usage
 ```JSX
