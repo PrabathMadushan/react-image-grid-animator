@@ -14,7 +14,8 @@
 		"url": "https://github.com/PrabathMadushan/react-image-grid-animator"
 	},
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "publish":"npm publish"
   },
   "keywords": [
     "react",

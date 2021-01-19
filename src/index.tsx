@@ -108,10 +108,5 @@ const ImageGrid = (props: ImageGridProps) => {
   );
 };
 
-ImageGrid.defaultProps = {
-  animationItemcount: -1,
-  randomized: true,
-  isActive: true,
-};
 
 export default ImageGrid;
