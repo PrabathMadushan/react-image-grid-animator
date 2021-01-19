@@ -22,6 +22,7 @@ import  ImageGrid  from  "react-image-grid-animator";
 	visibleCount={10}
 	interval={2000}
 	animationItemcount={0}
+	transitionType={"SCALE"}
 	transitionDuration={200}
 	isActive={true}
 />
@@ -35,7 +36,8 @@ import  ImageGrid  from  "react-image-grid-animator";
 | images             | string array | yes      | Array of image for the image grid                                                             |
 | visibleCount       | number       | yes      | Visible image count in grid  |
 | interval           | number       | yes      | Animation interval in milliseconds                                                                       |
-| animationItemcount           | number       | yes      | Animation item count (If animation item count value is "0" then it will be randomized.)                                                                      |
+| animationItemCount           | number       | yes      | Animation item count (If animation item count value is "0" then it will be randomized.)                                                                      |
+| transitionType | "SCALE" | "FADE" | "FADE_AND_SCALE" | "NONE"       | no      | Animation type ((default value is "FADE_AND_SCALE"))                                                                      |
 | transitionDuration | number       | yes      | Animation duration in milliseconds                                                                       |
 | isActive           | boolean      | no       | Animation running or not (default value is true)                                                        |
 

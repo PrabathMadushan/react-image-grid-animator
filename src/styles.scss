@@ -18,18 +18,25 @@
             transition-property: all;
         }
     }
-
-    .hide{
+    .hide-scale{
+        img{
+        transform: scale(0);
+        }
+    }
+    .show-scale{
+        img{
+        transform: scale(1);
+        }
+    }
+    .hide-fade{
         img{
         opacity: 0;
-        transform: scale(0);
+        }
     }
-    }
-
-    .show{
+    .show-fade{
         img{
         opacity: 1;
-        transform: scale(1);
+        }
     }
-    }
+    
 }

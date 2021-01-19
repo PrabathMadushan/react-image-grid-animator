@@ -1,15 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./styles.scss";
 
 interface IProps {
   image: string;
   transitionDuration: number;
+  transitionType: "SCALE" | "FADE" | "FADE_AND_SCALE" | "NONE";
 }
 
 const Item = (props: IProps) => {
   const { image } = props;
   const [show, setShow] = useState(false);
   const [imageStste, setImageState] = useState(props.image);
+
+  const { transitionType } = props;
+  const getTreansitionTypeClasse = useMemo(() => {
+    return (type: "show" | "hide") => {
+      switch (transitionType) {
+        case "FADE":
+          return `${type}-fade`;
+        case "SCALE":
+          return `${type}-scale`;
+        case "NONE":
+          return "";
+        default:
+          return `${type}-fade ${type}-scale`;
+      }
+    };
+  }, [transitionType]);
+
   useEffect(() => {
     setShow(false);
     setTimeout(() => {
@@ -19,7 +37,11 @@ const Item = (props: IProps) => {
   }, [image, props.transitionDuration]);
 
   return (
-    <div className={show ? "item show" : "item hide"}>
+    <div className={
+      show
+        ? `item ${getTreansitionTypeClasse("show")}`
+        : `item ${getTreansitionTypeClasse("hide")}`
+    }>
       <img
         src={imageStste}
         alt=""

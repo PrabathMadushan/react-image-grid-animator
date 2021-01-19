@@ -10,6 +10,7 @@ interface ImageGridProps {
   animationItemcount?: number;
   isActive?: boolean;
   transitionDuration: number;
+  transitionType?: "SCALE" | "FADE" | "FADE_AND_SCALE" | "NONE"
 }
 
 interface IItem {
@@ -43,9 +44,11 @@ const ImageGrid = (props: ImageGridProps) => {
   const { start, stop } = useInterval(() => {
     if (visibles.length === props.visibleCount) {
       const tc = props.images.length;
-      const vc = props.visibleCount;
-      const ic = tc - vc;
-      const mxc = vc < ic ? vc : ic;
+      let vc = props.visibleCount;
+      vc = (vc + (vc % 2)) / 2;
+      console.log("vc", vc);
+      const ic = tc - props.visibleCount;
+      let mxc = vc < ic ? vc : ic;
       const oneTimeCount =
         props.animationItemcount === 0
           ? Math.abs(Math.floor(Math.random() * mxc) + 1)
@@ -54,20 +57,23 @@ const ImageGrid = (props: ImageGridProps) => {
           ? mxc
           : props.animationItemcount ||
             props.images.length - props.visibleCount;
-      let r_array01 = [],
-        r_array02 = [];
-      for (let i: number = 0; i < visibles.length; i++) r_array01.push(i);
-      for (let i: number = 0; i < invisibles.length; i++) r_array02.push(i);
-      shuffleArray(r_array01);
-      shuffleArray(r_array02);
-      for (let i: number = 0; i < oneTimeCount; i++) {
-        const r1 = r_array01[i];
-        const r2 = r_array02[i];
-        const i1 = visibles[r1];
-        const i2 = invisibles[r2];
-        visibles[r1] = i2;
-        invisibles[r2] = i1;
-      }
+      let r_array01 = shuffleArray([...Array(visibles.length).keys()]),
+        r_array02 = shuffleArray([...Array(invisibles.length).keys()]);
+      r_array01 =
+        Math.random() < 0.5
+          ? r_array01.filter((n) => n % 2 === 0)
+          : r_array01.filter((n) => n % 2 === 1);
+
+      console.log("r_array01", r_array01, "maxc", oneTimeCount);
+      for (
+        let i: number = 0;
+        i < (oneTimeCount > r_array01.length ? r_array01.length : oneTimeCount);
+        i++
+      )
+        [visibles[r_array01[i]], invisibles[r_array02[i]]] = [
+          invisibles[r_array02[i]],
+          visibles[r_array01[i]],
+        ];
       setVisibles([...visibles]);
       setInvisibles([...invisibles]);
     }
@@ -97,6 +103,7 @@ const ImageGrid = (props: ImageGridProps) => {
             transitionDuration={props.transitionDuration}
             key={index}
             image={item.image}
+            transitionType={props.transitionType || "FADE_AND_SCALE"}
           />
         ))}
       </div>
