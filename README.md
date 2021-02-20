@@ -1,5 +1,7 @@
 # React Image Grid Animator
 
+![gif](https://media.giphy.com/media/5tynFSu6NJDMx4fkHx/giphy.gif)
+
 ## Getting Started with React Image Grid Animator
 
 ### How to install
