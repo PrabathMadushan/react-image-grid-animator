@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
-import "./styles.scss";
+import React, { useEffect, useMemo, useState } from 'react';
+import './styles.scss';
 
 interface IProps {
   image: string;
   transitionDuration: number;
-  transitionType: "SCALE" | "FADE" | "FADE_AND_SCALE" | "NONE";
+  transitionType: 'SCALE' | 'FADE' | 'FADE_AND_SCALE' | 'NONE';
+  imageClass?: string;
 }
 
 const Item = (props: IProps) => {
@@ -14,14 +15,14 @@ const Item = (props: IProps) => {
 
   const { transitionType } = props;
   const getTreansitionTypeClasse = useMemo(() => {
-    return (type: "show" | "hide") => {
+    return (type: 'show' | 'hide') => {
       switch (transitionType) {
-        case "FADE":
+        case 'FADE':
           return `${type}-fade`;
-        case "SCALE":
+        case 'SCALE':
           return `${type}-scale`;
-        case "NONE":
-          return "";
+        case 'NONE':
+          return '';
         default:
           return `${type}-fade ${type}-scale`;
       }
@@ -37,15 +38,18 @@ const Item = (props: IProps) => {
   }, [image, props.transitionDuration]);
 
   return (
-    <div className={
-      show
-        ? `item ${getTreansitionTypeClasse("show")}`
-        : `item ${getTreansitionTypeClasse("hide")}`
-    }>
+    <div
+      className={
+        show
+          ? `item ${getTreansitionTypeClasse('show')}`
+          : `item ${getTreansitionTypeClasse('hide')}`
+      }
+    >
       <img
         src={imageStste}
-        alt=""
+        alt=''
         style={{ transitionDuration: `${props.transitionDuration}ms` }}
+        className={props.imageClass}
       />
     </div>
   );

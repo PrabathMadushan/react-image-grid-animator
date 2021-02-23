@@ -3,19 +3,19 @@
   "version": "1.1.3",
   "module": "build/index.es.js",
   "description": "A animated image grid",
-	"license": "MIT",
-	"author": "Prabhath Madhushan <prabathmadushan5@gmail.com>",
+  "license": "MIT",
+  "author": "Prabhath Madhushan <prabathmadushan5@gmail.com>",
   "main": "build/index.js",
   "files": [
     "build"
   ],
   "repository": {
-		"type": "git",
-		"url": "https://github.com/PrabathMadushan/react-image-grid-animator"
-	},
+    "type": "git",
+    "url": "https://github.com/PrabathMadushan/react-image-grid-animator"
+  },
   "scripts": {
     "build": "rollup -c",
-    "publish":"npm publish"
+    "publish": "npm publish"
   },
   "keywords": [
     "react",
@@ -31,7 +31,6 @@
     "photo",
     "icon"
   ],
-
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
