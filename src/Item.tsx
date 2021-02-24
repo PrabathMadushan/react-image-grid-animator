@@ -39,17 +39,17 @@ const Item = (props: IProps) => {
 
   return (
     <div
-      className={
+      className={[
         show
           ? `item ${getTreansitionTypeClasse('show')}`
-          : `item ${getTreansitionTypeClasse('hide')}`
-      }
+          : `item ${getTreansitionTypeClasse('hide')}`,
+        props.imageClass,
+      ].join(' ')}
     >
       <img
         src={imageStste}
         alt=''
         style={{ transitionDuration: `${props.transitionDuration}ms` }}
-        className={props.imageClass}
       />
     </div>
   );
