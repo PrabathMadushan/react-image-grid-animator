@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Item from './Item';
-import './styles.scss';
-import { useInterval } from './useInterval';
+import React, { useEffect, useState } from "react";
+import Item from "./Item";
+import "./styles.scss";
+import { useInterval } from "./useInterval";
 
 interface ImageGridProps {
   images: string[];
@@ -10,7 +10,7 @@ interface ImageGridProps {
   animationItemcount?: number;
   isActive?: boolean;
   transitionDuration: number;
-  transitionType?: 'SCALE' | 'FADE' | 'FADE_AND_SCALE' | 'NONE';
+  transitionType?: "SCALE" | "FADE" | "FADE_AND_SCALE" | "NONE";
   imageClass?: string;
 }
 
@@ -95,13 +95,13 @@ const ImageGrid = (props: ImageGridProps) => {
 
   return (
     <div>
-      <div className='brand-animation-wraper'>
+      <div className="brand-animation-wraper">
         {visibles.map((item, index) => (
           <Item
             transitionDuration={props.transitionDuration}
             key={index}
             image={item.image}
-            transitionType={props.transitionType || 'FADE_AND_SCALE'}
+            transitionType={props.transitionType || "FADE_AND_SCALE"}
             imageClass={props.imageClass}
           />
         ))}
