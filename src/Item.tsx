@@ -1,11 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { IItem } from ".";
 import "./styles.scss";
 
 interface IProps {
-  image: string;
+  image: string | IItem;
+  id: string;
   transitionDuration: number;
   transitionType: "SCALE" | "FADE" | "FADE_AND_SCALE" | "NONE";
   imageClass?: string;
+  onClick?: (item: IItem) => void;
 }
 
 const Item = (props: IProps) => {
@@ -45,12 +48,37 @@ const Item = (props: IProps) => {
           : `item ${getTreansitionTypeClasse("hide")}`
       }
     >
-      <img
-        src={imageStste}
-        alt=""
-        style={{ transitionDuration: `${props.transitionDuration}ms` }}
-        className={props.imageClass}
-      />
+      {typeof props.image === "string" ? (
+        <div
+          className="iitem"
+          style={{ transitionDuration: `${props.transitionDuration}ms` }}
+          onClick={() => {
+            console.log("ok string image");
+          }}
+        >
+          <img
+            src={typeof imageStste === "string" ? imageStste : imageStste.image}
+            alt=""
+            className={props.imageClass}
+          />
+        </div>
+      ) : (
+        <div
+          className="iitem"
+          style={{ transitionDuration: `${props.transitionDuration}ms` }}
+          onClick={() => {
+            if (props.onClick) props.onClick(props.image as IItem);
+          }}
+        >
+          {props.image.topText && props.image.topText}
+          <img
+            src={typeof imageStste === "string" ? imageStste : imageStste.image}
+            alt=""
+            className={props.image.imageClass}
+          />
+           {props.image.topText && props.image.buttomText}
+        </div>
+      )}
     </div>
   );
 };

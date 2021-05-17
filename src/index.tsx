@@ -3,8 +3,17 @@ import Item from "./Item";
 import "./styles.scss";
 import { useInterval } from "./useInterval";
 
+export interface IItem {
+  id: string;
+  image: string;
+  imageStyles?: React.CSSProperties;
+  imageClass?: string;
+  topText?: JSX.Element;
+  buttomText?: JSX.Element;
+}
+
 interface ImageGridProps {
-  images: string[];
+  images: string[] | IItem[];
   visibleCount: number;
   interval: number;
   animationItemcount?: number;
@@ -12,10 +21,7 @@ interface ImageGridProps {
   transitionDuration: number;
   transitionType?: "SCALE" | "FADE" | "FADE_AND_SCALE" | "NONE";
   imageClass?: string;
-}
-
-interface IItem {
-  image: string;
+  onItemClick?: (Item: IItem) => void;
 }
 
 const ImageGrid = (props: ImageGridProps) => {
@@ -25,9 +31,27 @@ const ImageGrid = (props: ImageGridProps) => {
   const { isActive: isActiveProp } = props;
 
   useEffect(() => {
-    const items: IItem[] = props.images.map((image, index) => ({
-      image,
-    }));
+    const items: IItem[] = (props.images as Array<string | IItem>).map(
+      (image: string | IItem, index: number) => {
+        if (typeof image === "string") {
+          console.log("string");
+          return {
+            id: "none",
+            image,
+            topText: <></>,
+            buttomText: <></>,
+          };
+        } else if (typeof image === "object") {
+          return image;
+        }
+        return {
+          id: "none",
+          image,
+          topText: <></>,
+          buttomText: <></>,
+        };
+      }
+    );
     const invs: IItem[] = [];
     const vs: IItem[] = [];
 
@@ -100,7 +124,11 @@ const ImageGrid = (props: ImageGridProps) => {
           <Item
             transitionDuration={props.transitionDuration}
             key={index}
-            image={item.image}
+            image={item}
+            id={item.id}
+            onClick={(id) => {
+              if (props.onItemClick) props.onItemClick(item);
+            }}
             transitionType={props.transitionType || "FADE_AND_SCALE"}
             imageClass={props.imageClass}
           />

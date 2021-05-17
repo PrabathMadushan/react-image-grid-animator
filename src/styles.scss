@@ -7,34 +7,45 @@
     align-items: center;
     .item{
         width: 100px;
-        height: 100px;
+        // height: 100px;
+        cursor: pointer;
         padding: 10px;
         flex-shrink: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img{
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+
+        .iitem{
             width: 100%;
             transition-property: all;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: black;
+            font-size: 10px;
+        }
+        img{
+            width: 100%;
         }
     }
     .hide-scale{
-        img{
+        .iitem{
         transform: scale(0);
         }
     }
     .show-scale{
-        img{
+        .iitem{
         transform: scale(1);
         }
     }
     .hide-fade{
-        img{
+        .iitem{
         opacity: 0;
         }
     }
     .show-fade{
-        img{
+        .iitem{
         opacity: 1;
         }
     }
