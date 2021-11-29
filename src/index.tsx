@@ -55,8 +55,16 @@ const ImageGrid = (props: ImageGridProps) => {
     const invs: IItem[] = [];
     const vs: IItem[] = [];
 
+    
+    let t_vc = 0;
+    if(props.visibleCount>=items.length){
+      t_vc=items.length-1;
+    }else{
+      t_vc=props.visibleCount;
+    }
+
     items.forEach((item) => {
-      if (vs.length >= props.visibleCount) {
+      if (vs.length >= t_vc) {
         invs.push(item);
       } else {
         vs.push(item);
@@ -67,20 +75,26 @@ const ImageGrid = (props: ImageGridProps) => {
   }, [props.images, props.visibleCount]);
 
   const { start, stop } = useInterval(() => {
-    if (visibles.length === props.visibleCount) {
+    let t_vc = 0;
+    if(props.visibleCount>=props.images.length){
+      t_vc=props.images.length-1;
+    }else{
+      t_vc=props.visibleCount;
+    }
+    if (visibles.length === t_vc) {
       const tc = props.images.length;
-      let vc = props.visibleCount;
+      let vc = t_vc;
       vc = (vc + (vc % 2)) / 2;
-      const ic = tc - props.visibleCount;
+      const ic = tc - t_vc;
       let mxc = vc < ic ? vc : ic;
       const oneTimeCount =
         props.animationItemcount === 0
           ? Math.abs(Math.floor(Math.random() * mxc) + 1)
           : (props.animationItemcount ||
-              props.images.length - props.visibleCount) > mxc
+              props.images.length - t_vc) > mxc
           ? mxc
           : props.animationItemcount ||
-            props.images.length - props.visibleCount;
+            props.images.length - t_vc;
       let r_array01 = shuffleArray([...Array(visibles.length).keys()]),
         r_array02 = shuffleArray([...Array(invisibles.length).keys()]);
       r_array01 =
