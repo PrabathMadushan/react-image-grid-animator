@@ -34,7 +34,6 @@ const ImageGrid = (props: ImageGridProps) => {
     const items: IItem[] = (props.images as Array<string | IItem>).map(
       (image: string | IItem, index: number) => {
         if (typeof image === "string") {
-          console.log("string");
           return {
             id: "none",
             image,
